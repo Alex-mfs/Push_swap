@@ -11,5 +11,27 @@ void	ft_sa(t_stack **a, int print)
 	tmp->next = (*a)->next;
 	(*a)->next = tmp;
 	if (print)
-		write(1, "sa/n", 3);
+		write(1, "sa\n", 3);
+}
+
+void	ft_sb(t_stack **b, int print)
+{
+	t_stack	*tmp;
+
+	if (!(*b) || !(*b)->next)
+		return ;
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = (*b)->next;
+	(*b)->next = tmp;
+	if (print)
+		write(1, "sb\n", 3);
+}
+
+void	ft_ss(t_stack **a, t_stack **b, int print)
+{
+	ft_sa(a, 0);
+	ft_sb(b, 0);
+	if (print)
+		write(1, "ss\n", 3);
 }

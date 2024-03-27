@@ -45,4 +45,11 @@ void	ft_sort(t_stack **a)
 	else
 		ft_big_sort(a);
 	min = ft_find_node(*a, ft_min(*a));
+	while ((*a) != min)
+	{
+		if (min->above_median)
+			ft_ra(a, 1);
+		else
+			ft_rra(a, 1);
+	}
 }
