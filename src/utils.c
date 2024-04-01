@@ -19,6 +19,34 @@ t_stack	*get_stack(int ac, char **av)
 	return (a);
 }
 
+long	ft_min(t_stack *a)
+{
+	long	min;
+
+	min = a->nbr;
+	while (a)
+	{
+		if (a->nbr < min)
+			min = a->nbr;
+		a = a->next;
+	}
+	return (min);
+}
+
+long	ft_max(t_stack *a)
+{
+	long	max;
+
+	max = a->nbr;
+	while (a)
+	{
+		if (a->nbr > max)
+			max = a->nbr;
+		a = a->next;
+	}
+	return (max);
+}
+
 long	ft_atoi(const char *str)
 {
 	int				i;
