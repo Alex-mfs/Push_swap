@@ -1,69 +1,36 @@
-#CORES
-RESET	= \033[0m
-BLACK 	= \033[1;30m
-RED 	= \033[1;31m
-GREEN 	= \033[1;32m
-YELLOW 	= \033[1;33m
-BLUE	= \033[1;34m
-MAGENTA	= \033[1;35m
-CYAN 	= \033[1;36m
-WHITE 	= \033[1;37m
+# Compiler and Flags
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g
 
-#COMMANDS
-RM = rm -rf
-AR = ar -rcs
-CC = cc
+#Include directory
+INC = -Iinc
 
-#FLAGS
-CFLAGS	= -Wall -Wextra -Werror -g
-LFLAGS	= -L ./libft -lft
+# Project files
+SRC_PATH = ./src/push_swap/
+SRCS = $(SRC_PATH)main.c $(SRC_PATH)utils.c $(SRC_PATH)utils2.c $(SRC_PATH)validate.c $(SRC_PATH)error.c $(SRC_PATH)swap.c $(SRC_PATH)rotate.c $(SRC_PATH)reverse_rotate.c $(SRC_PATH)push.c $(SRC_PATH)sorting.c $(SRC_PATH)stack_aux.c $(SRC_PATH)sorting_aux.c $(SRC_PATH)calculate_cost.c $(SRC_PATH)algorithm.c
+OBJS = $(SRCS:.c=.o)
+DEPS = inc/push_swap.h
+NAME = push_swap
 
-#PATHS
-DEPS			= include
-HEADERS			= include/push_swap.h include/libft.h
-SRCS			= srcs/push_swap
-SRCS_BONUS		= srcs/checker
-LIBFT_PATH		= libft
-OBJ_PATH		= objs
-OBJ_PATH_BONUS	= objs_checker
-
-#FILES
-NAME			= push_swap
-SRC_FILES		= utils validate error swap rotate reverse_rotate push sorting stack_aux sorting_aux calculate_cost algorithm
-OBJS			= $(SRC_FILES:%=%.o)
-TARGET			= $(addprefix $(OBJ_PATH)/, $(OBJS))
-
-#RULES 
+# Compile and create the executable
 all: $(NAME)
 
-$(NAME): $(OBJ_PATH) $(TARGET) $(HEADERS) srcs/push_swap/main.c
-	echo "$(MAGENTA)Compiling:$(RESET) $(GREEN)libft/*$(RESET)"
-	make -C $(LIBFT_PATH)
-	echo "$(CYAN)🔗 Linking: $(RESET) $(CFLAGS) $(GREEN)*$(NAME)$(RESET)"
-	$(CC) $(CFLAGS) $(TARGET) srcs/push_swap/main.c $(LFLAGS) -o $(NAME) -I$(DEPS)
-	@echo "$(GREEN)🎉 YAY! Compilation is done!$(RESET)"
-	
-$(OBJ_PATH)/%.o : $(SRCS)/%.c 
-	@echo "$(MAGENTA)Compiling:$(RESET) $(CFLAGS) $(GREEN)$<$(RESET)"
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(DEPS)
+$(NAME): $(OBJS) $(DEPS)
+	$(CC) $(CFLAGS) $(INC) -o $(NAME) $(OBJS)
 
-$(OBJ_PATH) :
-	mkdir -p $(OBJ_PATH)
+# Generic rule for object files
+%.o: %.c $(DEPS)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
+# Clean objects
 clean:
-	make clean -C $(LIBFT_PATH)
-	echo "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(OBJ_PATH)$(RESET)"
-	$(RM) $(OBJ_PATH)
-	echo "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(OBJ_PATH_BONUS)$(RESET)"
-	$(RM) $(OBJ_PATH_BONUS)
+	rm -f $(OBJS)
 
+# Full clean (objects + executable)
 fclean: clean
-	make fclean -C $(LIBFT_PATH)	
-	echo "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(NAME)$(RESET)"
-	$(RM) $(NAME)
-	echo "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(NAME_BONUS)$(RESET)"
-	$(RM) $(NAME_BONUS)
+	rm -f $(NAME)
 
+# Rebuild
 re: fclean all
 
-rebonus: fclean bonus
+.PHONY: all clean fclean re
