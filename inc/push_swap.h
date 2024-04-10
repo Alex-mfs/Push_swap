@@ -1,25 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 18:30:34 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 18:41:31 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#define PUSH_SWAP_H
+# include <stdlib.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <limits.h>
+# include <unistd.h>
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <limits.h>
-#include <unistd.h>
+# define BOOL _Bool
 
-#define bool _Bool
-
-typedef struct  s_stack
+typedef struct s_stack
 {
-    long				nbr;
-	int				index; // number position
-	int				push_cost; // how maany commands in total
-	bool			above_median; // used to calculate the push cost
-	bool			cheapest; // the node that is the cheapest to do commands
-	struct	s_stack	*target; // the target node of a node in the opposite stack
-	struct	s_stack	*next; // pointer to the next node
-}				t_stack;
+	long					nbr;
+	int						index;
+	int						push_cost;
+	bool					above_median;
+	bool					cheapest;
+	struct s_stack			*target;
+	struct s_stack			*next;
+}		t_stack;
 
 //Handle errors
 void	ft_free(void *x);
@@ -92,7 +103,7 @@ bool	check_sort(t_stack *a);
 bool	check_repeat(t_stack *a);
 bool	check_number(char *nbr);
 bool	validate_stack(int argc, char **argv);
-int	ft_isdigit(int c);
+int		ft_isdigit(int c);
 
 //BONUS
 void	check_line(t_stack **a, t_stack **b);
