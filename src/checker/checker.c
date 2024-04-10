@@ -6,7 +6,7 @@
 /*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:48:39 by alfreire          #+#    #+#             */
-/*   Updated: 2024/04/10 18:06:07 by alfreire         ###   ########.fr       */
+/*   Updated: 2024/04/10 19:09:05 by alfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ int	main(int ac, char *av[])
 	else
 		write(1, "KO\n", 3);
 	ft_stackclear(&a, ft_free);
+	ft_stackclear(&b, ft_free);
 	return (0);
 }
