@@ -31,10 +31,14 @@ $(BONUS_NAME): $(BONUS_OBJS) $(DEPS)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 
 re: fclean all
+
+rebonus: fclean bonus
 
 .PHONY: all clean fclean re
