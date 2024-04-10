@@ -94,4 +94,11 @@ bool	check_number(char *nbr);
 bool	validate_stack(int argc, char **argv);
 int	ft_isdigit(int c);
 
+//BONUS
+void	check_line(t_stack **a, t_stack **b);
+bool	checkcommand(t_stack **a, t_stack **b, char *line);
+bool	ft_check_reverserot(t_stack **a, t_stack **b, char *line);
+void	ft_checker_error(t_stack *a);
+t_stack	*get_stack_checker(int ac, char **av);
+
 #endif

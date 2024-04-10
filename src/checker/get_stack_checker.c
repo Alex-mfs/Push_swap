@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   get_stack_checker.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:49:29 by alfreire          #+#    #+#             */
-/*   Updated: 2024/04/10 17:54:22 by alfreire         ###   ########.fr       */
+/*   Created: 2024/04/10 17:48:48 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 18:06:20 by alfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pa(t_stack **a, t_stack **b, int print)
+t_stack	*get_stack_checker(int ac, char **av)
 {
-	t_stack	*tmp;
+	int				i;
+	t_stack			*a;
+	int				j;
 
-	if (!(*b))
-		return ;
-	tmp = *b;
-	*b = (*b)->next;
-	tmp->next = NULL;
-	ft_stackadd_front(a, tmp);
-	if (print)
-		write(1, "pa\n", 3);
-}
-
-void	ft_pb(t_stack **a, t_stack **b, int print)
-{
-	t_stack	*tmp;
-
-	if (!(*a))
-		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	tmp->next = NULL;
-	ft_stackadd_front(b, tmp);
-	if (print)
-		write(1, "pb\n", 3);
+	i = 1;
+	a = NULL;
+	if (ac == 2 && !check_number(av[1]))
+		ft_checker_error(a);
+	while (i < ac)
+	{
+		j = ft_atoi(av[i]);
+		ft_stackadd_back(&a, ft_stack_new(j));
+		i++;
+	}
+	return (a);
 }

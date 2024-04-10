@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:48:57 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 18:05:14 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_sort_three(t_stack **a)
@@ -12,10 +24,9 @@ void	ft_sort_three(t_stack **a)
 
 void	ft_big_sort(t_stack **a)
 {
-	t_stack *b;
-	int		size_a;
+	t_stack		*b;
+	int			size_a;
 
-	printf("1");
 	size_a = ft_stack_size(*a);
 	b = NULL;
 	if (size_a-- > 3 && !check_sort(*a))
@@ -36,7 +47,7 @@ void	ft_big_sort(t_stack **a)
 
 void	ft_sort(t_stack **a)
 {
-	t_stack *min;
+	t_stack	*min;
 
 	min = NULL;
 	if (ft_stack_size(*a) == 2)

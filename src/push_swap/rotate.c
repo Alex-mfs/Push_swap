@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:49:46 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 17:54:55 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_ra(t_stack **a, int print)
@@ -6,7 +18,7 @@ void	ft_ra(t_stack **a, int print)
 	t_stack	*last;
 
 	if (!(*a) || !(*a)->next)
-		return;
+		return ;
 	first = *a;
 	last = ft_stack_last(*a);
 	*a = first->next;
@@ -22,7 +34,7 @@ void	ft_rb(t_stack **b, int print)
 	t_stack	*last;
 
 	if (!(*b) || !(*b)->next)
-		return;
+		return ;
 	first = *b;
 	last = ft_stack_last(*b);
 	*b = first->next;

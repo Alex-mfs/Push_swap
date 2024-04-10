@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:50:53 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 18:02:52 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 bool	check_sort(t_stack *a)
@@ -28,7 +40,7 @@ bool	check_repeat(t_stack *a)
 		while (tmp)
 		{
 			if (tmp->nbr == a->nbr)
-				return	(false);
+				return (false);
 			tmp = tmp->next;
 		}
 		a = a->next;
@@ -39,7 +51,7 @@ bool	check_repeat(t_stack *a)
 bool	check_number(char *nbr)
 {
 	long	n;
-	int				i;
+	int		i;
 
 	n = ft_atoi(nbr);
 	i = 0;

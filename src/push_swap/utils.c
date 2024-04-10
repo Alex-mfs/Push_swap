@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:50:36 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 18:02:31 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 long	ft_atoi(const char *str)
 {
-	int				i;
-	int				sign;
+	int		i;
+	int		sign;
 	long	res;
 
 	i = 0;
@@ -28,13 +40,13 @@ long	ft_atoi(const char *str)
 t_stack	*get_stack(int ac, char **av)
 {
 	int				i;
-	t_stack	*a;
+	t_stack			*a;
 	int				j;
 
 	i = 1;
 	a = NULL;
 	if (ac == 2)
-		exit(EXIT_SUCCESS);//same as exit(0);
+		exit(EXIT_SUCCESS);
 	while (i < ac)
 	{
 		j = ft_atoi(av[i]);
@@ -72,7 +84,7 @@ long	ft_max(t_stack *a)
 	return (max);
 }
 
-t_stack *ft_find_node(t_stack *stack, long nbr)
+t_stack	*ft_find_node(t_stack *stack, long nbr)
 {
 	while (stack)
 	{

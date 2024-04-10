@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_aux.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:50:00 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 17:58:43 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	check_bellow_media(t_stack *a, int media)
@@ -30,10 +42,9 @@ t_stack	*find_bellow(t_stack *a, int media)
 	return (a);
 }
 
-
 /// @brief 
 /// @param stack pilha, mais precisamente eh o topo da pilha
-/// @param cheapest no que foi anteriormente classificado como acima ou abaixo da mediana
+/// @param cheapest no que foi anteriormente class acim ou aba da med
 /// @param k se se trata da pilha a ou b
 void	pre_push(t_stack **stack, t_stack *cheapest, char k)
 {

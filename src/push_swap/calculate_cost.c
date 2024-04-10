@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calculate_cost.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:49:08 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 18:03:40 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	calculate_cost(t_stack	*src, t_stack *dst)
@@ -60,7 +72,7 @@ void	set_cheapest(t_stack *stack)
 	long	cheapest_value;
 
 	if (!stack)
-		return;
+		return ;
 	cheapest_value = LONG_MAX;
 	while (stack)
 	{

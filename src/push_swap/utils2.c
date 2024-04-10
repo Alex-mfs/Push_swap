@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfreire <alfreire@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/10 17:50:45 by alfreire          #+#    #+#             */
+/*   Updated: 2024/04/10 18:04:38 by alfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_isdigit(int c)
@@ -33,14 +45,14 @@ int	find_min(t_stack *stack)
 			min = stack->nbr;
 		stack = stack->next;
 	}
-	return	min;
+	return (min);
 }
 
 void	index_stack(t_stack **stack_a)
 {
-	t_stack *tmp;
-	int	min;
-	int	index;
+	t_stack		*tmp;
+	int			min;
+	int			index;
 
 	tmp = *stack_a;
 	index = 1;
@@ -55,7 +67,7 @@ void	index_stack(t_stack **stack_a)
 				index++;
 				tmp = *stack_a;
 			}
-		}	
+		}
 		tmp = tmp->next;
 	}
 }
